@@ -1,0 +1,29 @@
+CREATE TABLE Flights (
+	FlightDate date,
+	IATA_Code_Marketing_Airline symbol,
+	Flight_Number_Operating_Airline int,
+	Origin symbol,
+	OriginState symbol,
+	Dest symbol,
+	DestState symbol,
+	DepDelay int,
+	ArrDelay int,
+	Cancelled boolean,
+	Diverted boolean,
+	Distance int
+)
+
+CREATE TABLE Flights (
+	FlightDate date,
+	Airline symbol,
+	FlightNumber int,
+	Origin symbol,
+	OriginState symbol,
+	Dest symbol,
+	DestState symbol,
+	DepDelay int,
+	ArrDelay int,
+	Cancelled boolean,
+	Diverted boolean,
+	Distance int
+)

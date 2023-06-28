@@ -1,0 +1,39 @@
+cd /opt
+sudo mkdir /opt/apps
+sudo chown questdb:questdb /opt/apps
+cd /opt/apps/
+
+wget https://github.com/questdb/questdb/releases/download/7.2/questdb-7.2-rt-linux-amd64.tar.gz
+
+tar xzf questdb-7.2-rt-linux-amd64.tar.gz
+
+rm questdb-7.2-rt-linux-amd64.tar.gz
+
+ln -s questdb-7.2-rt-linux-amd64/ questdb
+
+ls -l
+
+cd questdb
+
+./bin/questdb.sh start
+
+./bin/questdb.sh status
+
+./bin/questdb.sh stop
+
+sudo vi /etc/systemd/system/questdb.service
+
+[Unit]
+Description=questdb service
+
+[Service]
+Type=simple
+User=questdb
+WorkingDirectory=/opt/apps/questdb
+ExecStart=/usr/bin/bash -c './bin/questdb.sh start -n'
+ExecStop=/usr/bin/bash -c './bin/questdb.sh stop'
+
+[Install]
+WantedBy=multi-user.target
+
+
