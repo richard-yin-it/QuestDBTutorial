@@ -1,0 +1,29 @@
+SELECT COUNT(*) FROM Flights
+
+SELECT FlightDate, COUNT(*) FROM Flights
+GROUP BY FlightDate
+
+SELECT FlightDate, COUNT(*) "Number of flights" FROM Flights
+GROUP BY FlightDate
+ORDER BY FlightDate
+
+SELECT FlightDate, COUNT(*) "Number of flights" FROM Flights
+GROUP BY FlightDate
+ORDER BY 2 DESC
+
+SELECT * FROM (
+SELECT FlightDate, COUNT(*) "Number of flights" FROM Flights
+GROUP BY FlightDate
+ORDER BY 2 DESC
+) LIMIT 1
+
+SELECT FlightDate, MAX("Number of flights") FROM (
+SELECT FlightDate, COUNT(*) "Number of flights" FROM Flights
+GROUP BY FlightDate
+)
+
+SELECT DISTINCT Airline FROM Flights
+
+SELECT DISTINCT Origin FROM Flights
+
+SELECT MAX(Distance) FROM Flights
